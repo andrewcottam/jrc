@@ -108,7 +108,7 @@ public class CellUdtf extends GenericUDTF {
 
   private void getCellsEnclosedBy(double minLat, double maxLat, double minLon, double maxLon, Geometry geometry)
     throws HiveException {
-
+    LOG.trace("wibble");
     if (LOG.isDebugEnabled()) {
       LOG.debug("Establishing cells enclosed by (lon/lat), min: "
                 + minLon
@@ -134,7 +134,7 @@ public class CellUdtf extends GenericUDTF {
     lower = Math.max(0, lower);
     upper = Math.min(cellCalculator.getMaxLonCell() * cellCalculator.getMaxLatCell() - 1, upper);
 
-    LOG.info("Checking cells between " + lower + " and " + upper);
+    LOG.info("Checking cells between " + lower + " and " + upper + " this is where it gets stuck!");
 
     long omitLeft = lower % cellCalculator.getMaxLonCell();
     long omitRight = upper % cellCalculator.getMaxLonCell();
@@ -157,8 +157,8 @@ public class CellUdtf extends GenericUDTF {
           }
         }
       }
-
     }
+    LOG.info("OK done");
   }
 
 }
