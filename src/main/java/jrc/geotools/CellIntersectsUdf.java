@@ -37,6 +37,8 @@ public class CellIntersectsUdf extends UDF {
     }
 
     Geometry geom = reader.read(b.getBytes());
+    System.out.println("CellIntersectsUdf: " + String.valueOf(cell));
+    LOG.info("CellIntersectsUdf: " + String.valueOf(cell));
     Polygon envelope = cellCalculator.getCellEnvelope(cell);
     Geometry intersection = geom.intersection(envelope);
     byte[] resultBytes = writer.write(intersection);
