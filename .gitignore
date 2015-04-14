@@ -31,3 +31,6 @@ local.properties
 *.jar
 target/maven*
 target/surefire*
+
+#big test geojson files
+*common_redpoll.json
