@@ -34,3 +34,4 @@ target/surefire*
 
 #big test geojson files
 *common_redpoll.json
+/target/

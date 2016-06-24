@@ -133,7 +133,8 @@ public class CellUdtf extends GenericUDTF {
 
 		maxLat = Math.min(MAX_LAT, maxLat + cellCalculator.getCellSize());
 		maxLon = Math.min(MAX_LON, maxLon + cellCalculator.getCellSize());
-
+		System.out.println("longitude from " + minLon + " to " + maxLon);
+		System.out.println("latitude from " + minLat + " to " + maxLat);
 		long lower = cellCalculator.toCellId(minLat, minLon);
 		long upper = cellCalculator.toCellId(maxLat, maxLon);
 
