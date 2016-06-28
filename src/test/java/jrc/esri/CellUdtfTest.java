@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import com.esri.core.geometry.ogc.OGCGeometry;
 import com.esri.hadoop.hive.GeometryUtils;
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorFactory;

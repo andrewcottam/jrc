@@ -6,7 +6,6 @@ import java.nio.ByteBuffer;
 import jrc.esri.CellUdtf;
 
 import com.esri.core.geometry.ogc.OGCGeometry;
-import com.esri.hadoop.hive.GeometryUtils;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 

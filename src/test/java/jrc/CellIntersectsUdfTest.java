@@ -2,10 +2,6 @@ package jrc;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import jrc.geotools.CellAreaUdf;
-import jrc.geotools.CellIntersectsUdf;
 
 import org.apache.hadoop.io.BytesWritable;
 import org.json.JSONException;
@@ -13,10 +9,11 @@ import org.opengis.referencing.FactoryException;
 import org.opengis.referencing.operation.TransformException;
 
 import com.esri.core.geometry.ogc.OGCGeometry;
-import com.esri.hadoop.hive.GeometryUtils;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import com.vividsolutions.jts.io.ParseException;
+
+import jrc.geotools.CellIntersectsUdf;
 
 public class CellIntersectsUdfTest {
 
@@ -30,8 +27,11 @@ public class CellIntersectsUdfTest {
 			byteBuffer.get(byteArray, 0, byteArray.length);
 			BytesWritable geom = new BytesWritable(byteArray);
 			try {
-				BytesWritable result = cellIntersectsUdf.evaluate(0.1, 54929, geom);
-				System.out.println(GeometryUtils.geometryFromEsriShape(result).asGeoJson());
+				BytesWritable result = cellIntersectsUdf.evaluate(1, 42287, geom); //was 54929
+				byte[] resultByteArray = result.getBytes();
+				ByteBuffer bb = ByteBuffer.wrap(resultByteArray);
+				OGCGeometry g = OGCGeometry.fromBinary(bb);
+				System.out.println(g.asText());
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
